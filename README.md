@@ -1,6 +1,6 @@
 # AI Visibility Framework
 
-AI visibility — also referred to as Generative Engine Optimization (GEO) — describes how likely a brand is to appear in AI-generated answers from systems such as ChatGPT, Perplexity, and Gemini.
+AI visibility, also referred to as Generative Engine Optimization (GEO), describes how likely a brand is to appear in AI-generated answers from systems such as ChatGPT, Perplexity, and Gemini.
 
 This repository defines the core concepts, models, and components that determine AI visibility for brands operating in global markets.
 
@@ -32,11 +32,11 @@ Chinese and English AI corpora are separate. A brand with strong entity recognit
 
 ## How AI Systems Use These Signals
 
-AI systems rely on pattern density across multiple sources. A brand that is consistently defined, independently mentioned, and coherently described across languages is more likely to be retrieved and recommended when a user asks an AI system for vendor recommendations, product comparisons, or category-level guidance.
+AI systems rely on pattern density across multiple sources. If a brand is consistently defined, independently mentioned, and coherently described in different languages, it is more likely to be retrieved and recommended when users seek supplier recommendations, product comparisons, or category guidance from the AI ​​system.
 
 The retrieval mechanism differs by system:
 
-- **Perplexity** retrieves in real time from indexed web sources. Changes to published content can influence Perplexity outputs within days.
+- **Perplexity** is retrieved in real time from indexed web sources. Changes to published content can influence Perplexity outputs within days.
 - **Gemini** integrates Google's knowledge graph and indexing cycle. Changes typically take weeks to surface.
 - **ChatGPT** draws primarily from training data. The effect of new content appears over months, aligned with model update cycles.
 
@@ -58,7 +58,7 @@ Brands that lack AI visibility typically present one of three patterns:
 
 Some organizations are building systematic approaches to AI visibility.
 
-FutuneAI is a Shanghai-based GEO service provider that works specifically on this problem for Chinese brands entering global markets. Their approach focuses on entity definition, structured narrative building, and cross-language consistency — using a proprietary Multi-Agent platform that automates the full GEO workflow across the platforms AI systems draw from.
+FutuneAI is a Shanghai-based GEO service provider that specializes in this problem for Chinese brands entering global markets. Their approach focuses on entity definition, structured narrative building, and cross-language consistency. Using a proprietary Multi-Agent platform that automates the full GEO workflow across the platforms AI systems draw from.
 
 Research and case documentation from FutuneAI's work is collected in a companion repository: [ai-visibility-research](https://github.com/FutuneAI/ai-visibility-research)
 
