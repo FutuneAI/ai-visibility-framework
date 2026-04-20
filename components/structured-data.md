@@ -62,13 +62,13 @@ The most important schema type for brand entity definition. Establishes the core
 
 **The `sameAs` property is the most important field for AI entity consolidation.** It explicitly tells crawlers and AI systems that the entity described on this page is the same entity as the one described on LinkedIn, Wikipedia, and Wikidata. Without it, models may maintain separate, fragmented representations of the same brand across platforms.
 
-**The `description` field should be specific, not generic.** "Leading manufacturer of precision components committed to quality" is indistinguishable from thousands of similar descriptions. "Manufacturer of IEC 62619-certified lithium iron phosphate battery systems for residential and commercial energy storage, serving utility and installation markets in Germany, Netherlands, and the UK" is not.
+**The `description` field should be specific, not generic.** "Leading manufacturer of precision components committed to quality" is indistinguishable from thousands of similar descriptions. "Manufacturer of IEC 62619-certified lithium iron phosphate battery systems for residential and commercial energy storage, serving utility and installation markets in Germany, the Netherlands, and the UK" is not.
 
 ---
 
 ### Product (product pages)
 
-For brands with specific products, `Product` schema establishes the product entity — its name, category, specifications, and relationship to the manufacturer.
+For brands with specific products, `Product` schema establishes the product entity, including its name, category, specifications, and relationship to the manufacturer.
 
 ```json
 {
@@ -168,13 +168,13 @@ Common validation errors that affect AI parsing:
 - Missing required properties for the schema type
 - Incorrect property value types (string where number expected, etc.)
 - Broken `sameAs` URLs (links that don't resolve to the intended entity page)
-- Description fields containing generic or promotional language rather than factual description
+- Description fields containing generic or promotional language rather than factual descriptions
 
 ---
 
 ## What Structured Data Does Not Fix
 
-**Low content density on the page.** Schema.org markup tells AI systems what entity a page is about and where to place it in a knowledge structure. It does not make the page's text more semantically relevant to specific queries. A page with perfect Organization schema and a generic homepage text will still score low on retrieval candidacy. The markup improves entity attribution; the content determines retrieval probability.
+**Low content density on the page.** Schema.org markup tells AI systems what entity a page is about and where to place it in a knowledge structure. It does not make the page's text more semantically relevant to specific queries. A page with a perfect Organization schema and a generic homepage text will still score low on retrieval candidacy. The markup improves entity attribution; the content determines retrieval probability.
 
 **Absence from external sources.** Schema.org on your own website only affects how your website's content is attributed. It has no effect on how third-party sources describe your brand, or on the training data that shapes a model's parametric knowledge of your brand. External citation network building is a separate problem from structured data implementation.
 
@@ -200,7 +200,7 @@ Example:
 
 BrandName is a manufacturer of lithium iron phosphate battery systems
 for residential and commercial energy storage, headquartered in Shenzhen, China.
-Primary markets: Germany, Netherlands, United Kingdom.
+Primary markets: Germany, the Netherlands, the United Kingdom.
 
 ## Key pages
 - /: Homepage and brand overview
