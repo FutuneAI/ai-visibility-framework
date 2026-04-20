@@ -20,10 +20,10 @@ This document contains both layers. L1 checkpoints are marked with `[L1]`. L2-on
 
 ## Before You Begin
 
-This diagnostic assesses structural drivers of AI visibility — the underlying properties that predict whether and how a brand appears in AI-generated responses. It does not measure real-time AI mention frequency (that requires live query testing across multiple AI systems).
+This diagnostic assesses structural drivers of AI visibility. The underlying properties that predict whether and how a brand appears in AI-generated responses. It does not measure real-time AI mention frequency (that requires live query testing across multiple AI systems).
 
 **Recommended inputs:**
-- Access to the brand's main website (with ability to inspect page source)
+- Access to the brand's main website (with the ability to inspect page source)
 - A list of 5–10 queries a target buyer might ask an AI assistant in the brand's category
 - A browser with access to Perplexity, ChatGPT, and at least one other AI system
 - 2–3 hours for the full L2 diagnostic; 30–45 minutes for the L1 self-assessment
@@ -38,10 +38,10 @@ This diagnostic assesses structural drivers of AI visibility — the underlying 
 
 Search the brand name across: the brand's own website, LinkedIn company page, Google Business Profile (if applicable), major industry directories, and any Wikipedia or Wikidata entries.
 
-- All sources use identical primary brand name, with no significant variation: **5 points**
+- All sources use the identical primary brand name, with no significant variation: **5 points**
 - Minor variations (abbreviations, punctuation) but consistent core name: **3 points**
 - Meaningful inconsistencies (different legal name vs. trade name used interchangeably without clarification): **1 point**
-- Significant confusion (multiple names used without clear hierarchy): **0 points**
+- Significant confusion (multiple names used without a clear hierarchy): **0 points**
 
 ### Checkpoint 1.2 — Category definition clarity `[L1]`
 
@@ -59,7 +59,7 @@ Read the brand's homepage, About page, and 3 external descriptions. Identify how
 
 ### Checkpoint 1.4 — Differentiation statement specificity `[L2]`
 
-Review the brand's stated differentiation across homepage, About, and product pages.
+Review the brand's stated differentiation across the homepage, About, and product pages.
 
 - Differentiation is specific, verifiable, and distinct from generic industry claims ("we've maintained <2% defect rate across 40M units shipped"): **5 points**
 - Differentiation present but relies on generic claims ("commitment to quality," "customer-first approach"): **2 points**
@@ -67,7 +67,7 @@ Review the brand's stated differentiation across homepage, About, and product pa
 
 ### Checkpoint 1.5 — Reference-layer presence `[L2]`
 
-Check for brand presence in reference-layer sources: Wikipedia, Wikidata, Crunchbase, Bloomberg company data, major industry association directories.
+Check for brand presence in reference-layer sources: Wikipedia, Wikidata, Crunchbase, Bloomberg company data, and major industry association directories.
 
 - Present in 3 or more reference-layer sources with accurate, consistent descriptions: **5 points**
 - Present in 1–2 reference-layer sources: **2 points**
@@ -83,7 +83,7 @@ Check for brand presence in reference-layer sources: Wikipedia, Wikidata, Crunch
 
 ### Checkpoint 2.1 — Homepage information density `[L1]`
 
-Read only the text content of the homepage (ignore images and navigation). Assess: does this text contain any specific, verifiable claims about what the company does, for whom, with what outcome?
+Read only the text content of the homepage (ignore images and navigation). Assess: Does this text contain any specific, verifiable claims about what the company does, for whom, with what outcome?
 
 - Homepage contains specific capability claims, named use cases, quantified outcomes, or named customer segments: **5 points**
 - Homepage contains some specific information mixed with generic brand language: **3 points**
@@ -178,15 +178,15 @@ Compare how 5 external sources describe the brand. Assess consistency of: catego
 
 ### Checkpoint 4.1 — Crawlability of key pages `[L1]`
 
-Check robots.txt. Verify that homepage, About page, and core product pages are not blocked. Test that key pages render their text content without JavaScript execution (use a browser extension to disable JS and reload).
+Check robots.txt. Verify that the homepage, About page, and core product pages are not blocked. Test that key pages render their text content without JavaScript execution (use a browser extension to disable JS and reload).
 
 - All key pages crawlable with full text content available without JS: **5 points**
-- Key pages crawlable but some content requires JS: **3 points**
+- Key pages crawlable, but some content requires JS: **3 points**
 - Key pages blocked or critical content locked behind JS rendering: **0 points**
 
 ### Checkpoint 4.2 — Sitemap presence `[L1]`
 
-Check for sitemap at /sitemap.xml or referenced in robots.txt.
+Check for a sitemap at /sitemap.xml or for references in robots.txt.
 
 - Machine-readable sitemap present and includes key pages: **5 points**
 - Sitemap present but incomplete or outdated: **2 points**
@@ -194,7 +194,7 @@ Check for sitemap at /sitemap.xml or referenced in robots.txt.
 
 ### Checkpoint 4.3 — Schema.org implementation `[L2]`
 
-Use Google's Rich Results Test or a JSON-LD validator to check structured data on homepage and key pages.
+Use Google's Rich Results Test or a JSON-LD validator to check structured data on the homepage and key pages.
 
 - Organization schema with name, URL, description, address, and sameAs properties on homepage; relevant Product or Service schema on product pages: **5 points**
 - Some schema present but incomplete or missing key properties: **2 points**
@@ -237,9 +237,9 @@ For teams using only the public L1 checkpoints, the maximum score is 40 points (
 
 | L1 Score | Interpretation |
 |----------|----------------|
-| 32–40 | Strong foundation on publicly visible indicators. Full L2 diagnostic recommended to identify deeper gaps. |
-| 20–31 | Significant gaps visible in public-facing signals. High-priority remediation likely needed in at least 2 dimensions. |
-| 0–19 | Foundational gaps. Brand likely has near-zero AI visibility. Systematic rebuild required before optimization is meaningful. |
+| 32–40 | Strong foundation on publicly visible indicators. A full L2 diagnostic is recommended to identify deeper gaps. |
+| 20–31 | Significant gaps visible in public-facing signals. High-priority remediation is likely needed in at least 2 dimensions. |
+| 0–19 | Foundational gaps. Brand likely has near-zero AI visibility. A systematic rebuild is required before optimization is meaningful. |
 
 ---
 
@@ -247,7 +247,7 @@ For teams using only the public L1 checkpoints, the maximum score is 40 points (
 
 After scoring, identify the lowest-scoring dimension. Address dimensions in this order:
 
-**If Dimension 4 (Infrastructure) is lowest:** Fix first. Content improvements have no impact if content cannot be crawled and indexed. Infrastructure is the prerequisite.
+**If Dimension 4 (Infrastructure) is lowest:** Fix first. Content improvements have no impact if the content cannot be crawled and indexed. Infrastructure is the prerequisite.
 
 **If Dimension 1 (Entity Definition) is lowest:** Fix second. Inconsistent entity definition means improvements to other dimensions will attribute value to a fuzzy or incorrect brand representation.
 
