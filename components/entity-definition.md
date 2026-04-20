@@ -8,14 +8,14 @@
 
 ## What Is a Brand Entity, in AI Terms
 
-In the context of large language models, an "entity" is a discrete, identifiable thing that the model can form a representation of — a person, organization, product, place, or concept. When a model is asked about a company, it draws on its parametric knowledge of that company as an entity: what it is, what it does, where it operates, how it differs from similar entities.
+In the context of large language models, an "entity" is a discrete, identifiable thing that the model can represent, such as a person, organization, product, place, or concept. When a model is asked about a company, it draws on its parametric knowledge of that company as an entity: what it is, what it does, where it operates, how it differs from similar entities.
 
-Entity definition is the process of ensuring that this representation is accurate, complete, and consistent — across the model's training data, across retrieval sources, and across the external information landscape that shapes both.
+Entity definition is the process of ensuring that this representation is accurate, complete, and consistent. Across the model's training data, across retrieval sources, and across the external information landscape that shapes both.
 
 A poorly defined entity produces one of three failure modes:
 - **Absence:** the model has no representation of the brand and omits it from relevant responses
 - **Confusion:** the model conflates the brand with a similarly named entity or misattributes properties
-- **Degradation:** the model has a representation but it is outdated, inaccurate, or incomplete in ways that produce incorrect descriptions
+- **Degradation:** the model has a representation, but it is outdated, inaccurate, or incomplete in ways that produce incorrect descriptions
 
 ---
 
@@ -23,7 +23,7 @@ A poorly defined entity produces one of three failure modes:
 
 ### 1. Name consistency
 
-The brand's primary name — and any acceptable variants — should be used consistently across all sources. This includes the brand's own website, social profiles, directory listings, press coverage, and any other externally visible surface.
+The brand's primary name and any acceptable variants should be used consistently across all sources. This includes the brand's own website, social profiles, directory listings, press coverage, and any other externally visible surface.
 
 Inconsistency creates disambiguation problems. A model that encounters "Acme Manufacturing," "Acme Mfg," "Acme Precision," and "Acme Co." across different sources may treat these as separate entities, split its representation, or fail to consolidate information correctly.
 
@@ -35,9 +35,9 @@ Inconsistency creates disambiguation problems. A model that encounters "Acme Man
 
 ### 2. Category classification
 
-The brand's primary category — what type of organization it is, what industry it operates in, what it primarily makes or does — should be described using consistent terminology across sources.
+The brand's primary category, what type of organization it is, what industry it operates in, and what it primarily makes or does.All of these should be described using consistent terminology across sources.
 
-Category classification affects how a model places a brand in its knowledge structure. A brand described as a "precision manufacturer" in some sources, a "CNC machining provider" in others, and a "custom metal components company" in others occupies an ambiguous position — the model may represent it accurately in some contexts and incorrectly in others.
+Category classification affects how a model places a brand in its knowledge structure. A brand described as a "precision manufacturer" in some sources, a "CNC machining provider" in others, and a "custom metal components company" in others occupies an ambiguous position. The model may represent it accurately in some contexts and incorrectly in others.
 
 **What to define:**
 - Primary industry category (use standard industry terminology where it exists)
@@ -49,21 +49,21 @@ Category classification affects how a model places a brand in its knowledge stru
 
 Where the brand is headquartered, where it operates, and what markets it serves should be clearly and consistently stated.
 
-Geographic identity is particularly important for international brands, where the same company may be described differently in different language environments. A Chinese manufacturer expanding to English-speaking markets may be described with inconsistent geographic framing — sometimes as a "China-based manufacturer," sometimes with no geographic context, sometimes with its international subsidiary as the implied entity.
+Geographic identity is particularly important for international brands, where the same company may be described differently in different language environments. A Chinese manufacturer expanding to English-speaking markets may be described with inconsistent geographic framing, sometimes as a "China-based manufacturer," sometimes with no geographic context, sometimes with its international subsidiary as the implied entity.
 
 **What to define:**
 - Headquarters location (city and country)
 - Primary markets served (by geography or by industry vertical)
-- Operational scale indicators (approximate employee count, annual revenue range, production capacity — whichever is most relevant and verifiable)
-- Entity relationships (parent company, subsidiaries, operating brands — clarify the structure)
+- Operational scale indicators (approximate employee count, annual revenue range, production capacity, whichever is most relevant and verifiable)
+- Entity relationships (parent company, subsidiaries, operating brands, need to clarify the structure)
 
 ### 4. Differentiation claims
 
-What makes this brand distinct from others in its category should be expressed in specific, verifiable terms — not generic quality claims.
+What makes this brand distinct from others in its category should be expressed in specific, verifiable terms, rather than merely making generalized claims of quality.
 
 Generic differentiation ("committed to quality," "customer-first approach," "innovative solutions") contributes nothing to entity definition. Every brand in a category makes these claims. They create no distinction in a model's representation.
 
-Specific differentiation does: named certifications, documented performance metrics, specific application contexts, named customer segments, verifiable track records. These create a distinct position in semantic space that a model can represent and retrieve.
+Specific differentiation does: named certifications, documented performance metrics, specific application contexts, named customer segments, and verifiable track records. These create a distinct position in semantic space that a model can represent and retrieve.
 
 **What to specify:**
 - Technical certifications and standards compliance (with the standards named explicitly)
@@ -90,13 +90,13 @@ Entity definition is not a single-page problem. It requires consistency across m
 | Industry directory listings | Category-specific entity signals; contribute to training data through aggregation |
 | Press coverage | Third-party entity descriptions; high training data weight |
 
-**The consistency test:** pull the entity description from five independent sources and compare. If the category, name, geographic scope, and primary capability are described consistently, entity definition is working. If they differ meaningfully, inconsistency is suppressing accurate representation.
+**The consistency test:** pull the entity description from five independent sources and compare. If the category, name, geographic scope, and primary capability are described consistently, the entity definition is working. If they differ meaningfully, inconsistency suppresses accurate representation.
 
 ---
 
 ## Entity Definition and Schema.org
 
-Schema.org structured markup is the most direct way to provide machine-readable entity definition on a website. The `Organization` schema type supports the key entity properties:
+Schema.org structured markup is the most direct way to provide a machine-readable definition of a website entity. The `Organization` schema type supports the key entity properties:
 
 ```json
 {
@@ -126,7 +126,7 @@ Schema.org structured markup is the most direct way to provide machine-readable 
 
 The `sameAs` property is particularly important: it explicitly links the website entity to the same entity on other platforms, enabling models to consolidate information across sources rather than treating each source as a potentially separate entity.
 
-Schema.org markup does not replace content-level entity definition — it supplements it. A page with perfect Schema.org markup and generic content will still have low semantic density for retrieval purposes. Schema.org improves entity attribution; content density improves retrieval candidacy.
+Schema.org markup does not replace content-level entity definition. It supplements it. A page with perfect Schema.org markup and generic content will still have low semantic density for retrieval purposes. Schema.org improves entity attribution; content density improves retrieval candidacy.
 
 ---
 
@@ -140,7 +140,7 @@ Schema.org markup does not replace content-level entity definition — it supple
 
 **Generic differentiation only.** All differentiation claims are category-generic ("quality," "reliability," "innovation"). The model has no basis for distinguishing this brand from hundreds of similar entities.
 
-**Inconsistent entity across language versions.** The Chinese-language version of the website describes the company differently than the English-language version — different scope claims, different capability descriptions, different named certifications. Models that index both versions form a fragmented representation.
+**Inconsistent entity across language versions.** The Chinese-language version of the website describes the company differently from the English-language version. Refer to different scope claims, different capability descriptions, and different named certifications. Models that index both versions form a fragmented representation.
 
 ---
 
