@@ -10,13 +10,13 @@
 
 Structured data (Schema.org markup) is frequently described as a primary lever for AI visibility — the implication being that adding structured markup to your website will cause AI systems to "find" and "recommend" you.
 
-This is inaccurate in a specific way that matters: structured data is a prerequisite for clean entity attribution, not a driver of retrieval probability. Understanding the distinction determines whether your structured data investment produces the right outcome.
+This is inaccurate in a specific way that matters: structured data primarily supports clean entity attribution, and while it can indirectly influence retrieval systems, it is not a primary driver of retrieval probability. Understanding the distinction determines whether your structured data investment produces the right outcome.
 
 What structured data does: helps AI systems correctly identify which entity a page is about, link that entity to the same entity on other platforms, and extract key properties (name, category, location, capabilities) in a machine-readable format.
 
 What structured data does not do: increase the semantic relevance of your content to specific queries, improve your retrieval ranking in RAG systems, or cause AI systems to mention you in responses where you wouldn't otherwise appear.
 
-The relationship: structured data makes your content more accurately attributed when it is retrieved. It does not make your content more likely to be retrieved in the first place. That depends on content semantic density (see [semantic-density.md](./semantic-density.md)).
+The relationship: structured data makes your content more accurately attributed when it is retrieved. It does not, by itself, make your content significantly more likely to be retrieved in the first place. That depends on content semantic density (see [semantic-density.md](./semantic-density.md)).
 
 ---
 
@@ -60,7 +60,7 @@ The most important schema type for brand entity definition. Establishes the core
 }
 ```
 
-**The `sameAs` property is the most important field for AI entity consolidation.** It explicitly tells crawlers and AI systems that the entity described on this page is the same entity as the one described on LinkedIn, Wikipedia, and Wikidata. Without it, models may maintain separate, fragmented representations of the same brand across platforms.
+**The `sameAs` property is one of the most important fields for entity consolidation across structured and semi-structured systems.** It explicitly tells crawlers and AI systems that the entity described on this page is the same entity as the one described on LinkedIn, Wikipedia, and Wikidata. Without it, systems may be less reliable in associating references to the same brand across platforms, potentially leading to fragmented or inconsistent interpretations.
 
 **The `description` field should be specific, not generic.** "Leading manufacturer of precision components committed to quality" is indistinguishable from thousands of similar descriptions. "Manufacturer of IEC 62619-certified lithium iron phosphate battery systems for residential and commercial energy storage, serving utility and installation markets in Germany, the Netherlands, and the UK" is not.
 
@@ -131,7 +131,7 @@ For editorial and technical content that you want to be clearly attributed as au
 }
 ```
 
-Clear authorship attribution matters for training data: models that can attribute content to a specific organization can update their representation of that organization's expertise and positioning when training on that content.
+Clear authorship attribution matters for training data: when training data clearly associates content with a specific organization, it can contribute to how that organization's expertise and positioning are reflected in model outputs.
 
 ---
 
@@ -174,9 +174,9 @@ Common validation errors that affect AI parsing:
 
 ## What Structured Data Does Not Fix
 
-**Low content density on the page.** Schema.org markup tells AI systems what entity a page is about and where to place it in a knowledge structure. It does not make the page's text more semantically relevant to specific queries. A page with a perfect Organization schema and a generic homepage text will still score low on retrieval candidacy. The markup improves entity attribution; the content determines retrieval probability.
+**Low content density on the page.** Schema.org markup helps systems identify what entity a page is about and provides signals that can support how it is categorized and associated within broader knowledge systems. It does not make the page's text more semantically relevant to specific queries. A page with a perfect Organization schema and a generic homepage text will still score low on retrieval candidacy. The markup improves entity attribution; the content determines retrieval probability.
 
-**Absence from external sources.** Schema.org on your own website only affects how your website's content is attributed. It has no effect on how third-party sources describe your brand, or on the training data that shapes a model's parametric knowledge of your brand. External citation network building is a separate problem from structured data implementation.
+**Absence from external sources.** Schema.org on your own website only affects how your website's content is attributed. It does not directly affect how third-party sources describe your brand, and has limited influence over the training data that shapes model behavior. External citation network building is a separate problem from structured data implementation.
 
 **Inconsistent entity definition across platforms.** If your LinkedIn description, Wikipedia entry, and homepage describe your brand differently, Schema.org `sameAs` links help consolidate these into one entity — but only if the underlying descriptions are consistent enough for the model to reconcile them. Schema.org reduces consolidation friction; it does not resolve underlying inconsistency.
 
@@ -186,7 +186,7 @@ Common validation errors that affect AI parsing:
 
 In addition to Schema.org markup, a relatively new convention for AI-specific content declaration is the `llms.txt` file, placed at the domain root (`https://www.brandname.com/llms.txt`).
 
-`llms.txt` is a plain-text file that describes the site's content structure for AI systems — what the site contains, which pages are most important, and optionally which content AI systems should or should not use. It is analogous to `robots.txt` in intent but oriented toward AI agents rather than search crawlers.
+`llms.txt` is a plain-text file that describes the site's content structure for AI systems: what the site contains, which pages are most important, and optionally which content AI systems should or should not use. It is conceptually analogous to `robots.txt` in intent, but is not yet widely standardized or consistently used by AI systems.
 
 The specification is not yet standardized, but the emerging convention includes:
 - A brief description of the organization and the site's primary purpose
