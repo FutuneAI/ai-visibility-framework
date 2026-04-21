@@ -8,11 +8,11 @@
 
 ## What Is a Brand Entity, in AI Terms
 
-In the context of large language models, an "entity" is a discrete, identifiable thing that the model can represent, such as a person, organization, product, place, or concept. When a model is asked about a company, it draws on its parametric knowledge of that company as an entity: what it is, what it does, where it operates, how it differs from similar entities.
+In the context of large language models, an "entity" is a discrete, identifiable thing that the model can represent, such as a person, organization, product, place, or concept. When a model is asked about a company, it draws on patterns learned during training, along with any retrieved context, to generate a representation of that company: what it is, what it does, where it operates, how it differs from similar entities.
 
 Entity definition is the process of ensuring that this representation is accurate, complete, and consistent. Across the model's training data, across retrieval sources, and across the external information landscape that shapes both.
 
-A poorly defined entity produces one of three failure modes:
+In practice, a poorly defined entity is more likely to result in one of three observable failure modes:
 - **Absence:** the model has no representation of the brand and omits it from relevant responses
 - **Confusion:** the model conflates the brand with a similarly named entity or misattributes properties
 - **Degradation:** the model has a representation, but it is outdated, inaccurate, or incomplete in ways that produce incorrect descriptions
@@ -37,7 +37,7 @@ Inconsistency creates disambiguation problems. A model that encounters "Acme Man
 
 The brand's primary category, what type of organization it is, what industry it operates in, and what it primarily makes or does.All of these should be described using consistent terminology across sources.
 
-Category classification affects how a model places a brand in its knowledge structure. A brand described as a "precision manufacturer" in some sources, a "CNC machining provider" in others, and a "custom metal components company" in others occupies an ambiguous position. The model may represent it accurately in some contexts and incorrectly in others.
+Category classification influences how a brand is positioned within semantic representations and how likely it is to be retrieved for relevant queries. A brand described as a "precision manufacturer" in some sources, a "CNC machining provider" in others, and a "custom metal components company" in others occupies an ambiguous position. The model may represent it accurately in some contexts and incorrectly in others.
 
 **What to define:**
 - Primary industry category (use standard industry terminology where it exists)
@@ -124,15 +124,15 @@ Schema.org structured markup is the most direct way to provide a machine-readabl
 }
 ```
 
-The `sameAs` property is particularly important: it explicitly links the website entity to the same entity on other platforms, enabling models to consolidate information across sources rather than treating each source as a potentially separate entity.
+The `sameAs` property is particularly important: it explicitly links the website entity to the same entity on other platforms, helping search engines and downstream AI systems better associate and align information about the same entity across sources.
 
-Schema.org markup does not replace content-level entity definition. It supplements it. A page with perfect Schema.org markup and generic content will still have low semantic density for retrieval purposes. Schema.org improves entity attribution; content density improves retrieval candidacy.
+Schema.org markup does not replace content-level entity definition. It supplements it. A page with perfect Schema.org markup and generic content will still have low semantic density for retrieval purposes. In practice, Schema.org markup improves explicit entity attribution signals, while content density increases the likelihood of being selected in retrieval-based systems.
 
 ---
 
 ## Common Entity Definition Failures
 
-**Name drift across platforms.** The legal entity name is used on the website, a shortened trade name on LinkedIn, a romanized version on international directories, and an abbreviated form in press coverage. The model accumulates inconsistent representations.
+**Name drift across platforms.** The legal entity name is used on the website, a shortened trade name on LinkedIn, a romanized version on international directories, and an abbreviated form in press coverage. Inconsistent signals across sources can lead to less reliable or fragmented representations in both model outputs and retrieval results.
 
 **Category ambiguity on the homepage.** The homepage leads with brand values or visual identity rather than a clear statement of what the company does. Models struggle to categorize the brand accurately.
 
