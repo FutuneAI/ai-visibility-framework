@@ -10,7 +10,9 @@
 
 This guide provides a practical framework for determining which of four AI visibility states a brand currently occupies, and what actions correspond to each state.
 
-It is designed to be used before the full diagnostic (see [visibility-diagnostic-framework.md](./diagnostic/visibility-diagnostic-framework.md)) — as a quick triage to understand where to focus, rather than a comprehensive scoring exercise.
+It is designed to be used before the full diagnostic (see [visibility-diagnostic-framework.md](./diagnostic/visibility-diagnostic-framework.md)), as a quick triage to determine where to focus, rather than a comprehensive scoring exercise.
+
+This framework is heuristic and probabilistic in nature. AI system behavior is non-deterministic, and the states described here should be interpreted as behavior patterns rather than absolute classifications.
 
 ---
 
@@ -18,11 +20,11 @@ It is designed to be used before the full diagnostic (see [visibility-diagnostic
 
 ### State 1: Complete Absence
 
-**Definition:** The AI system has no usable representation of the brand. The brand does not appear in responses about its category, and when queried directly, the system either disclaims knowledge, produces a confabulated description, or describes a different entity with a similar name.
+**Definition:** The AI system has no reliably usable representation of the brand. The brand does not appear in responses about its category, and when queried directly, the system either disclaims knowledge, produces a confabulated description, or describes a different entity with a similar name.
 
 **How to identify it:**
 
-Run these three tests across at least two AI systems (e.g., ChatGPT and Perplexity):
+Results may vary across runs due to model variability, so patterns should be observed over multiple attempts. Run these three tests across at least two AI systems (e.g., ChatGPT and Perplexity). :
 
 *Test A — Direct brand query:*
 Ask: "What is [Brand Name]? What do they do?"
@@ -34,27 +36,27 @@ Ask: "Which [category] companies in [geography] are known for [specific capabili
 
 *Test C — Name disambiguation:*
 Ask: "Is there a company called [Brand Name] that makes [product]?"
-→ If the system cannot confirm basic facts: **State 1 confirmed**
+→ If the system cannot confirm basic facts: **Strong indicator of State 1**
 
 **Root causes (most common):**
 - Brand name is too generic or shared with a more prominent entity
 - No English-language web presence or extremely limited presence
 - All web presence is on platforms that are poorly crawled (WeChat, closed platforms)
-- Company is too recently founded to appear in training data
+- The company is too recently founded to appear in training data
 - Brand operates entirely through distributors with no direct web identity
 
 **Priority actions:**
-1. Establish basic English-language web presence with clear entity definition
-2. Create or claim Wikipedia/Wikidata entry if brand meets notability criteria
+1. Establish a basic English-language web presence with a clear entity definition
+2. Create or claim a Wikipedia/Wikidata entry if the brand meets notability criteria
 3. Ensure brand appears in at least 3 independent, crawlable external sources
 4. Implement Organization Schema.org markup on homepage
-5. Register and complete Google Business Profile and LinkedIn company page
+5. Register and complete the Google Business Profile and the LinkedIn company page
 
 ---
 
 ### State 2: Partial or Inaccurate Representation
 
-**Definition:** The AI system has a representation of the brand, but it contains errors, is outdated, or conflates the brand with another entity. The system can be prompted to describe the brand, but the description is wrong in ways that matter — wrong category, wrong geography, wrong capabilities, wrong ownership.
+**Definition:** The AI system has a representation of the brand, but it may contain errors, be outdated, or conflate the brand with another entity. The system can be prompted to describe the brand, but the description is wrong in ways that matter — wrong category, wrong geography, wrong capabilities, wrong ownership.
 
 **How to identify it:**
 
@@ -94,7 +96,7 @@ Run the same queries on ChatGPT, Perplexity, and Gemini.
 
 ### State 3: Accurate but Passive Representation
 
-**Definition:** The AI system can describe the brand accurately when asked directly, but the brand does not surface proactively in category-level or recommendation queries. The model "knows" the brand exists but does not associate it strongly enough with specific use cases to surface it unprompted.
+**Definition:** The AI system can describe the brand accurately when asked directly, but the brand does not surface proactively in category-level or recommendation queries. The model "knows" the brand exists but does not consistently associate it with specific use cases in a way that leads to unprompted surfacing.
 
 This is the most common state for established brands that have not actively built AI visibility. It is also the state most often misdiagnosed as "good" — because the brand appears when searched directly, teams assume visibility is adequate. The problem is that most buyer queries don't name brands — they describe needs.
 
@@ -102,12 +104,12 @@ This is the most common state for established brands that have not actively buil
 
 *Test A — Direct query (should work in State 3):*
 Ask: "What is [Brand Name]?"
-→ System provides accurate description ✓
+→ System provides an accurate description ✓
 
 *Test B — Category query (the diagnostic test):*
 Ask: "Which companies should I consider for [use case] in [geography]?"
 Variations: "What are the top [category] suppliers for [application]?"
-→ If the brand never appears across 10+ variations of category queries: **State 3 confirmed**
+→ If the brand consistently does not appear across 10+ variations of category queries: **State 3 is strongly indicated**
 
 *Test C — Comparison query:*
 Ask: "How does [Brand Name] compare to [Competitor]?"
@@ -116,13 +118,13 @@ Ask: "How does [Brand Name] compare to [Competitor]?"
 **Root causes:**
 - Content exists but lacks semantic specificity — it doesn't associate the brand with specific use cases, applications, or buyer queries
 - External citations exist but are generic (directory listings, not substantive descriptions)
-- Brand is described in general terms everywhere; no source creates a specific association between brand and particular buyer needs
+- Brand is described in general terms everywhere; no source creates a specific association between the brand and particular buyer needs
 - Content is technically accessible but semantically thin — passes crawl but fails retrieval relevance for specific queries
 
 **Priority actions:**
-1. Map the 5–10 specific queries target buyers would ask an AI about this category
+1. Map the 5–10 specific queries that target buyers would ask an AI about this category
 2. For each query: identify whether any owned content would be semantically relevant to retrieve — if not, create it
-3. Shift content strategy from general capability descriptions to specific use-case and application content
+3. Shift content strategy from general capability descriptions to specific use cases and application content
 4. Publish in industry media with content that explicitly addresses specific buyer questions
 5. Build external references that associate the brand with specific applications, not just the general category
 
@@ -130,18 +132,18 @@ Ask: "How does [Brand Name] compare to [Competitor]?"
 
 ### State 4: Active Recommendation Presence
 
-**Definition:** The brand surfaces proactively when users ask AI systems about relevant categories, use cases, or supplier recommendations — without naming the brand in the query. This represents functional AI visibility.
+**Definition:** The brand surfaces proactively when users ask AI systems about relevant categories, use cases, or supplier recommendations — without naming the brand in the query. This represents a practical level of AI visibility in real-world query scenarios.
 
 **How to identify it:**
 
-Run 20+ variations of category and use-case queries across 3+ AI platforms. If the brand appears in responses to at least half of relevant queries on at least two platforms: **State 4 confirmed**
+Run 20+ variations of category and use-case queries across 3+ AI platforms. If the brand appears in a significant proportion of relevant queries across at least two platforms, **State 4 is likely**
 
-Note: State 4 is probabilistic, not absolute. A brand in State 4 will not appear in every relevant response — AI generation is non-deterministic. The diagnostic indicator is consistent appearance across a pattern of queries, not 100% inclusion.
+Note: State 4 is probabilistic, not absolute. A brand in State 4 will not appear in every relevant response — AI generation is non-deterministic. The diagnostic indicator is a consistent appearance across a pattern of queries, not 100% inclusion.
 
 **Maintenance actions (State 4 is not permanent):**
 - Monitor for accuracy degradation — active presence can coexist with description errors
 - Track competitor visibility — if competitors move into State 4, relative visibility shifts
-- Continue external citation building — parametric representation can decay if a brand's information footprint doesn't keep pace with industry growth
+- Continue external citation building — parametric representation may become less prominent relative to competitors if a brand's information footprint does not keep pace with industry growth
 - Update content as capabilities, markets, or positioning changes — old associations can persist and become inaccurate
 
 ---
@@ -171,7 +173,7 @@ Q1: When you ask an AI "What is [Brand Name]?" — does it know?
 This guide identifies which state a brand is in. The [visibility-diagnostic-framework.md](./diagnostic/visibility-diagnostic-framework.md) identifies *why* — which structural gaps are causing the state, scored across four dimensions (entity definition, content density, external citation network, retrieval infrastructure).
 
 The recommended sequence:
-1. Use this guide to determine current state (15–30 minutes)
+1. Use this guide to determine the current state (15–30 minutes)
 2. If State 1 or 2: address the root causes identified here before running the full diagnostic
 3. If State 3: run the full diagnostic to identify which structural dimensions need work
 4. If State 4: use the full diagnostic for monitoring and maintenance
