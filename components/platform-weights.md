@@ -8,15 +8,17 @@
 
 ## Overview
 
-Not all AI systems form brand representations the same way. A brand that appears prominently in ChatGPT responses may be absent from Perplexity results, and vice versa. Understanding why requires knowing how each major AI system acquires and uses information.
+Not all AI systems form brand representations the same way. A brand that appears prominently in ChatGPT responses may be absent from Perplexity results, and vice versa. Understanding these differences benefits from examining how each major AI system acquires and uses information.
 
 This document maps the primary AI platforms by their information architecture — specifically, how each platform's design affects the relative weight of training data versus real-time retrieval, and what that means for brand visibility strategy.
+
+The following framework is a simplified model for reasoning about platform behavior. Actual system implementations are more complex and not fully disclosed.
 
 ---
 
 ## The Two-Axis Framework
 
-AI systems vary across two dimensions that most affect brand visibility:
+AI systems often vary across multiple dimensions, with these two being among the most influential for brand visibility:
 
 **Axis 1: Training-reliance vs. retrieval-reliance**
 Some systems rely primarily on parametric knowledge encoded during training. Others retrieve real-time content before generating responses. Most use a combination, but the balance varies significantly.
@@ -43,19 +45,19 @@ Some systems draw from the broad public web. Others prioritize curated, high-aut
 
 **Primary mechanism:** Parametric knowledge from training data. No real-time retrieval in standard mode.
 
-**Implication for brand visibility:** A brand's representation in ChatGPT depends almost entirely on how it appeared in the pre-training corpus. If a brand was not present in sufficient volume and clarity before the training cutoff, it will not appear in ChatGPT responses regardless of current web presence.
+**Implication for brand visibility:** A brand's representation in ChatGPT is primarily influenced by patterns learned during training, with no direct access to real-time external content in standard mode. If a brand had a very limited or unclear presence in training data, it is less likely to appear in ChatGPT responses, regardless of current web presence.
 
 **What influences it:**
 - Volume of clear, consistent brand mentions across publicly crawlable sources before training cutoff
 - Quality and specificity of those mentions (generic mentions contribute less than specific, attributed descriptions)
 - Entity definition consistency across sources
 
-**What does not influence it:**
+**What does not directly influence it:**
 - Current website content
 - Recent press releases
 - New blog posts published after training cutoff
 
-**Strategic implication:** ChatGPT parametric visibility is a long-term accumulation problem. It cannot be fixed quickly. The primary lever is building consistent, high-quality external presence over time so that future training runs include better brand representation.
+**Strategic implication:** ChatGPT parametric visibility is a long-term accumulation problem. It cannot be fixed quickly. The primary lever is building a consistent, high-quality external presence over time so that future training runs include better brand representation.
 
 ---
 
@@ -63,7 +65,7 @@ Some systems draw from the broad public web. Others prioritize curated, high-aut
 
 **Primary mechanism:** Hybrid — parametric knowledge supplemented by real-time Bing-based retrieval for queries that benefit from current information.
 
-**Implication for brand visibility:** Brands can influence ChatGPT Search responses through current content quality and Bing indexing, even if their parametric representation is weak. Retrieval supplements and can partially override parametric gaps for specific queries.
+**Implication for brand visibility:** Brands can influence ChatGPT Search responses through current content quality and Bing indexing, even if their parametric representation is weak. Retrieval can supplement parametric knowledge and, in some cases, compensate for gaps in training data for specific queries.
 
 **What influences it:**
 - Bing index inclusion and crawlability of content
@@ -71,15 +73,16 @@ Some systems draw from the broad public web. Others prioritize curated, high-aut
 - Page authority signals in Bing's ranking model
 - Recency for time-sensitive queries
 
-**Strategic implication:** Bing SEO is a meaningful lever for ChatGPT Search — not identical to Google SEO, but closely related. Brands that are well-indexed on Bing with high-density content relevant to their category have a direct path to ChatGPT Search visibility.
+**Strategic implication:** Bing SEO is a meaningful lever for ChatGPT Search — not identical to Google SEO, but closely related. Brands that are well-indexed on Bing with high-density, category-relevant content have a direct path to ChatGPT Search visibility.
 
 ---
 
 ### Perplexity AI
 
-**Primary mechanism:** RAG-dominant. Perplexity retrieves real-time sources for nearly all queries and grounds its responses in retrieved content. Parametric knowledge plays a smaller role than in ChatGPT.
+**Primary mechanism:** RAG-dominant. Perplexity retrieves real-time sources for nearly all queries and grounds its responses in retrieved content. Parametric knowledge appears to play a less visible role compared to retrieval, as responses are typically grounded in cited sources, although the underlying model still influences synthesis and ranking.
 
-**Implication for brand visibility:** Perplexity is the platform most directly influenced by current content quality and web presence. A brand that produces high-density, well-structured, crawlable content can achieve Perplexity visibility relatively quickly compared to training-dependent platforms.
+**Implication for brand visibility:** Perplexity is the platform most directly influenced by current content quality and web presence. A brand with high-density, well-structured, and crawlable content may improve its chances of appearing in Perplexity results more quickly compared to training-dependent systems. However, outcomes still depend on query relevance and source authority.
+platforms.
 
 **What influences it:**
 - Real-time crawlability of content
@@ -91,7 +94,7 @@ Some systems draw from the broad public web. Others prioritize curated, high-aut
 **What does not influence it:**
 - Keyword density (retrieval is semantic, not lexical)
 - Meta descriptions (not a retrieval signal)
-- Traditional PageRank metrics (less direct than in Google)
+- Link-based authority signals (less transparent than Google)
 
 **Strategic implication:** Perplexity is the highest-leverage platform for brands with good current content but weak historical training coverage. Investment in content density and technical crawlability has the fastest payback here.
 
@@ -101,7 +104,7 @@ Some systems draw from the broad public web. Others prioritize curated, high-aut
 
 **Primary mechanism:** Varies by product. Gemini standard relies heavily on training data. Gemini with Search grounding uses Google's Search index for real-time retrieval. Google AI Overviews (appearing in Google Search) also uses Search grounding.
 
-**Implication for brand visibility:** Gemini's visibility is closely tied to Google SEO for the retrieval layer, but the training layer operates independently. Brands with strong Google SEO rankings have a structural advantage in Gemini with Search responses. AI Overviews are particularly influenced by Google's organic ranking signals.
+**Implication for brand visibility:** Gemini's visibility is closely tied to Google SEO for the retrieval layer, but the training layer operates independently. Brands with strong Google SEO rankings are more likely to have an advantage in Gemini systems that incorporate Google Search results. AI Overviews are particularly influenced by Google's organic ranking signals.
 
 **What influences it:**
 - Google Search index inclusion and ranking (for retrieval-enabled versions)
@@ -130,7 +133,7 @@ Some systems draw from the broad public web. Others prioritize curated, high-aut
 
 ## Cross-Platform Strategy Implications
 
-**There is no single optimization that covers all platforms.** Each platform's architecture requires a different primary lever:
+**There is no single optimization that reliably covers all platforms across all scenarios.** Each platform's architecture requires a different primary lever:
 
 | Priority | Platform group | Primary lever |
 |----------|---------------|---------------|
@@ -141,7 +144,7 @@ Some systems draw from the broad public web. Others prioritize curated, high-aut
 
 **The overlapping foundation:** High-density, well-structured, clearly attributed content on a technically crawlable website is a prerequisite for all platforms. Platform-specific optimization builds on this foundation — it does not replace it.
 
-**Training data is the slowest-moving lever.** Brands that are currently absent from LLM training data cannot fix this quickly. The realistic path is: build strong current content and external presence now, so that future training runs and retrieval-enabled systems can find the brand — and accept that parametric representation in training-dependent systems will improve on the timescale of months to years.
+**Training data is the slowest-moving lever.** Brands that are currently underrepresented in training data are unlikely to change this quickly. The realistic path is: build strong current content and external presence now, so that future training runs and retrieval-enabled systems can find the brand, and accept that parametric representation in training-dependent systems will improve on the timescale of months to years.
 
 ---
 
