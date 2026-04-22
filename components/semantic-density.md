@@ -8,13 +8,14 @@
 
 ## Definition
 
-Semantic density is the amount of specific, distinct, verifiable information contained per unit of text. It is the primary content-level driver of retrieval candidacy in RAG-based AI systems.
+Semantic density is the amount of specific, distinct, verifiable information contained per unit of text. It is an important content-level factor influencing retrieval candidacy in RAG-based AI systems.
 
 High-density content contains: specific claims, named standards, quantified outcomes, defined application contexts, named customer segments, verifiable differentiators.
 
 Low-density content contains: generic value statements, abstract capability descriptions, hedged language, interchangeable positioning claims.
 
-The distinction matters because RAG retrieval is semantic, not lexical. A retrieval system does not count keywords — it measures the semantic distance between a query embedding and a content chunk embedding. Generic content occupies a crowded, undifferentiated region of embedding space. Specific content occupies a more precise position — and therefore has a shorter semantic distance from specific queries.
+The distinction matters because RAG retrieval is semantic, not lexical. A retrieval system does not rely solely on keyword matching; it often measures the semantic distance between a query embedding and a content chunk embedding, sometimes in combination with lexical signals. Generic content tends to occupy a crowded and less differentiated region of embedding space.
+ Specific content occupies a more precise position and therefore tends to have a shorter semantic distance from specific queries.
 
 ---
 
@@ -22,11 +23,11 @@ The distinction matters because RAG retrieval is semantic, not lexical. A retrie
 
 When a user asks an AI system a specific question — "which manufacturers produce IEC 62619-certified battery systems for residential installation in Germany" — the retrieval system computes the semantic distance between that query and every indexed content chunk.
 
-A chunk containing "we provide high-quality energy storage solutions for global markets" lands far from this query in embedding space. Thousands of similar chunks from similar companies cluster in the same generic region. None of them get retrieved.
+A chunk containing "we provide high-quality energy storage solutions for global markets" lands far from this query in embedding space. Thousands of similar chunks from similar companies cluster in the same generic region. They are unlikely to be retrieved.
 
-A chunk containing "our LFP battery systems carry IEC 62619 certification and meet the grid connection requirements for residential installation in Germany, Netherlands, and Austria, with cycle life rated at 6,000 cycles at 80% DoD" lands close to this query. It is specific, it is verifiable, it matches the semantic content of the query. It gets retrieved.
+A chunk containing "our LFP battery systems carry IEC 62619 certification and meet the grid connection requirements for residential installation in Germany, Netherlands, and Austria, with cycle life rated at 6,000 cycles at 80% DoD" lands close to this query. It is specific, it is verifiable, it matches the semantic content of the query. It is much more likely to be retrieved.
 
-The mechanism is not about length, keyword inclusion, or writing quality in the stylistic sense. It is about whether the content occupies a distinct, specific position in semantic space that overlaps with the queries your target buyers are asking.
+The mechanism is not primarily determined by length, keyword inclusion, or stylistic writing quality. It is about whether the content occupies a distinct, specific position in semantic space that overlaps with the queries your target buyers are asking.
 
 ---
 
@@ -38,7 +39,7 @@ Describes what the company does at the category level, interchangeable with any 
 
 > "We are a leading manufacturer of precision components, committed to quality and customer satisfaction since 2005."
 
-Retrieval candidacy: near-zero for specific queries. This chunk competes with hundreds of thousands of nearly identical chunks.
+Retrieval candidacy: very low for specific queries. This chunk competes with hundreds of thousands of nearly identical chunks.
 
 **Level 2 — Capability-specific**
 
@@ -69,7 +70,7 @@ Retrieval candidacy: very high for any query about precision aerospace component
 ## Common Density Failures
 
 **The mission statement homepage**
-The entire homepage is brand narrative and value claims. No specific products, no named capabilities, no application contexts, no certifications. Every chunk extracted from this page lands in the generic zone.
+The entire homepage is a brand narrative and value claims. No specific products, no named capabilities, no application contexts, no certifications. Every chunk extracted from this page lands in the generic zone.
 
 *Fix:* Lead with what you make, for whom, with what specifications. Move brand narrative to a secondary position.
 
@@ -89,7 +90,7 @@ Publishing high volumes of short, generic blog posts or product updates. Each pi
 *Fix:* Audit existing content for density level. Prioritize rewriting Level 1 and Level 2 content to Level 3 or 4 over producing new Level 1 content.
 
 **The FAQ that answers generic questions**
-FAQ sections that answer "What is your minimum order quantity?" and "How do I contact you?" rather than specific technical or application questions. These chunks add no retrieval value for category or capability queries.
+FAQ sections that answer "What is your minimum order quantity?" and "How do I contact you?" rather than specific technical or application questions. These chunks add little retrieval value for category or capability queries.
 
 *Fix:* Write FAQ content that addresses the specific questions a target buyer would ask an AI — questions about capabilities, certifications, application fit, and differentiators.
 
@@ -101,10 +102,10 @@ Semantic density interacts with chunking — the way retrieval systems divide co
 
 **Chunk-friendly content structure:**
 
-- Each paragraph should be self-contained — comprehensible when read without the surrounding paragraphs
+- Each paragraph should be self-contained and comprehensible when read without the surrounding paragraphs
 - Headings should accurately describe the content that follows (they often appear in the same chunk as the first paragraph)
-- Avoid "as mentioned above" or "as discussed in the previous section" — these references break when the chunk is retrieved without context
-- Lists of specifications or certifications should include enough context to be meaningful in isolation: not just "IEC 62619" but "IEC 62619 (lithium battery safety for stationary applications)"
+- Avoid "as mentioned above" or "as discussed in the previous section". These references may lose clarity when the chunk is retrieved without context
+- Lists of specifications or certifications should include enough context to be meaningful in isolation: not just "IEC 62619" but "IEC 62619 (lithium battery safety for stationary applications)."
 
 **Page-level density check:**
 Select any paragraph from a key page. Read it in isolation, without seeing the page title or surrounding content. Does it convey a specific, complete piece of information about what the company does? If not, the chunk produced from that paragraph will have low retrieval value regardless of the page's overall quality.
@@ -115,9 +116,9 @@ Select any paragraph from a key page. Read it in isolation, without seeing the p
 
 There is no single metric for semantic density. Practical proxies:
 
-**Specificity ratio:** Count the number of specific, verifiable claims in a piece of content (named certifications, quantified metrics, named application contexts, named customer segments) versus the number of generic value statements. Higher ratio = higher density.
+**Specificity ratio:** Count the number of specific, verifiable claims in a piece of content (named certifications, quantified metrics, named application contexts, named customer segments) versus the number of generic value statements. A higher ratio generally indicates higher density
 
-**Query alignment test:** Write 5 specific queries your target buyers might ask an AI about your category. For each query, identify the most relevant chunk from your current content. If you cannot find a relevant chunk for most queries, density is insufficient.
+**Query alignment test:** Write 5 specific queries your target buyers might ask an AI about your category. For each query, identify the most relevant chunk from your current content. If you cannot find a relevant chunk for most queries, the density is insufficient.
 
 **Competitor comparison:** Run the same category query on Perplexity. Which companies appear in the response? Read their indexed content. Compare the specificity of their content to yours. This gives a relative density benchmark.
 
