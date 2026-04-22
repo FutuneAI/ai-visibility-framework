@@ -10,9 +10,9 @@
 
 Semantic density is the amount of specific, distinct, verifiable information contained per unit of text. It is an important content-level factor influencing retrieval candidacy in RAG-based AI systems.
 
-High-density content contains: specific claims, named standards, quantified outcomes, defined application contexts, named customer segments, verifiable differentiators.
+High-density content contains: specific claims, named standards, quantified outcomes, defined application contexts, named customer segments, and verifiable differentiators.
 
-Low-density content contains: generic value statements, abstract capability descriptions, hedged language, interchangeable positioning claims.
+Low-density content contains: generic value statements, abstract capability descriptions, hedged language, and interchangeable positioning claims.
 
 The distinction matters because RAG retrieval is semantic, not lexical. A retrieval system does not rely solely on keyword matching; it often measures the semantic distance between a query embedding and a content chunk embedding, sometimes in combination with lexical signals. Generic content tends to occupy a crowded and less differentiated region of embedding space.
  Specific content occupies a more precise position and therefore tends to have a shorter semantic distance from specific queries.
